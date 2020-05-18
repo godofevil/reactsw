@@ -17,7 +17,7 @@ const style = {
         flexGrow: 1,
     },
     logo: {
-        width: '4vmax'
+        width: '10vmin'
     }
 }
 

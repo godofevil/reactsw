@@ -17,7 +17,7 @@ class SearchForm extends React.Component {
     getWeather = e => {
         e.preventDefault();
         this.inputField.value &&
-        axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${this.inputField.value}&days=3`)
+        axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${this.inputField.value}&days=3`)
             .then(res => this.props.weatherToState(res.data));
         this.inputField.value = '';
     }
