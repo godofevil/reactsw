@@ -12,7 +12,8 @@ const style = {
     },
     paper: {
         padding: '20px',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#3f51b5'
     }
 }
 
@@ -25,6 +26,7 @@ export default props => {
                             <Typography variant="h3">
                                 {data.location.name}, {data.location.country}
                             </Typography>
+                            {data.location.localtime}
                             <CurrentWeather data={data.current}/>
                         </Paper>
                     </Grid>                    

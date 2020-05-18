@@ -38,7 +38,7 @@ class CurrentWeather extends React.Component {
                 </IconButton>
 
                 <Collapse in={this.state.expand} timeout="auto">
-                    <Typography style={style.weatherMore} color="primary" variant="h6">
+                    <Typography style={style.weatherMore} color="primary" variant="h6">                        
                         Feels like: {current.feelslike_c}&deg; <br />
                         Humidity: {current.humidity}% <br />
                         Cloud: {current.cloud}% <br />

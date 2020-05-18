@@ -8,7 +8,8 @@ import ArrowDownwardSharpIcon from '@material-ui/icons/ArrowDownwardSharp';
 
 const style = {
     paper: {
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#3f51b5'
     }
 }
 
@@ -22,7 +23,7 @@ const convertDate = date => new Date(date).
 export default props => {
     const data = props.data;
     
-    return <Grid item xs={12} md={6}>
+    return <Grid item xs={12} md={3}>
             <Paper style={style.paper} >
                 <Typography variant="h5">                        
                     {convertDate(data.date)} <br />

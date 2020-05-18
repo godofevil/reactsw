@@ -11,8 +11,8 @@ class Forecast extends React.Component {
                 container
                 item 
                 xs={12} 
-                spacing={3} 
-                alignItems="stretch"
+                spacing={3}                 
+                justify="center"
             >
                 { data.forecastday.map(item => <ForecastItem key={item.date} data={item} />) }
             </Grid>

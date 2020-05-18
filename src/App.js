@@ -22,6 +22,7 @@ class App extends React.Component {
 					<WeatherContainer data={this.state.weatherData} /> : 
 					null
 				}
+				{console.log(this.state.weatherData)}
 			</div>
 		)
 	}
