@@ -22,16 +22,17 @@ const style = {
     }
 }
 
-export default props => <AppBar style={style.appbar} position="static">                            
-                                <Grid container spacing={1} alignItems="center" justify="space-between">
-                                    <Grid item>
-                                        <Typography variant="h4" style={style.title} noWrap>
-                                        <img style={style.logo} src={logo} />                                    
-                                            React Simple Weather
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <SearchForm weatherToState={props.weatherToState} />                                        
-                                    </Grid>
-                                </Grid>
-                        </AppBar>
+export default props => 
+    <AppBar style={style.appbar} position="static">                            
+        <Grid container spacing={1} alignItems="center" justify="space-between">
+            <Grid item>
+                <Typography variant="h4" style={style.title} noWrap>
+                <img style={style.logo} src={logo} />                                    
+                    React Simple Weather
+                </Typography>
+            </Grid>
+            <Grid item>
+                <SearchForm weatherToState={props.weatherToState} />                                        
+            </Grid>
+        </Grid>
+    </AppBar>

@@ -1,31 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import WeatherContainer from './components/WeatherContainer';
 import Header from './components/Header';
 
-class App extends React.Component {
-	constructor(props) {
-		super(props)
+export default props => {
 
-		this.state = {
-			weatherData: {}
-		}
-	}
+	const [weatherData, weatherToState] = useState([]);
 	
-	weatherToState = weatherData => this.setState({weatherData})
-
-	render() {
-		return (
-			<div className="App">					
-				<Header weatherToState={this.weatherToState}/>
-				{
-					Object.keys(this.state.weatherData).length ?
-					<WeatherContainer data={this.state.weatherData} /> : 
-					null
-				}
-				{console.log(this.state.weatherData)}
-			</div>
-		)
-	}
+	return (
+		<div className="App">					
+			<Header weatherToState={data => weatherToState(data)}/>
+			{
+				Object.keys(weatherData).length ?
+				<WeatherContainer data={weatherData} /> : 
+				null
+			}
+		</div>
+	)
 }
-
-export default App;

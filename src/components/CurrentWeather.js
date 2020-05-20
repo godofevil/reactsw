@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Collapse from '@material-ui/core/Collapse'
 import IconButton from '@material-ui/core/IconButton';
@@ -11,44 +11,33 @@ const style = {
     }
 }
 
-class CurrentWeather extends React.Component {
-    constructor(props) {
-        super(props);
+export default props => {
 
-        this.state = {
-            expand: false
-        }
-    }
+    const [expand, setExpand] = useState(false);
 
-    showMore = () => this.setState({expand: !this.state.expand})
+    const current = props.data;
 
-    render() {
+    return (
+        <div>
+            <img src={current.condition.icon} alt="weather-icon" />
+            <Typography color="primary" variant="h4">
+                {current.temp_c}&deg; <br />
+                {current.condition.text}                    
+            </Typography>
 
-        const current = this.props.data;        
-        return (
-            <div>
-                <img src={current.condition.icon} alt="weather-icon" />
-                <Typography color="primary" variant="h4">
-                    {current.temp_c}&deg; <br />
-                    {current.condition.text}                    
+            <IconButton onClick={() => setExpand(!expand)}>
+                { expand ? <ExpandLessIcon /> : <ExpandMoreIcon /> }
+            </IconButton>
+
+            <Collapse in={expand} timeout="auto">
+                <Typography style={style.weatherMore} color="primary" variant="h6">                        
+                    Feels like: {current.feelslike_c}&deg; <br />
+                    Humidity: {current.humidity}% <br />
+                    Cloud: {current.cloud}% <br />
+                    Wind speed: {current.wind_kph} <br />
+                    Wind direction: {current.wind_dir} <br />
                 </Typography>
-
-                <IconButton onClick={this.showMore}>
-                    { this.state.expand ? <ExpandLessIcon /> : <ExpandMoreIcon /> }
-                </IconButton>
-
-                <Collapse in={this.state.expand} timeout="auto">
-                    <Typography style={style.weatherMore} color="primary" variant="h6">                        
-                        Feels like: {current.feelslike_c}&deg; <br />
-                        Humidity: {current.humidity}% <br />
-                        Cloud: {current.cloud}% <br />
-                        Wind speed: {current.wind_kph} <br />
-                        Wind direction: {current.wind_dir} <br />
-                    </Typography>
-                </Collapse>
-            </div>
-        )
-    }
+            </Collapse>
+        </div>
+    )
 }
-
-export default CurrentWeather

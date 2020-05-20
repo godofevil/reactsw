@@ -23,7 +23,8 @@ const convertDate = date => new Date(date).
 export default props => {
     const data = props.data;
     
-    return <Grid item xs={12} md={3}>
+    return (
+        <Grid item xs={12} md={3}>
             <Paper style={style.paper} >
                 <Typography variant="h5">                        
                     {convertDate(data.date)} <br />
@@ -37,5 +38,6 @@ export default props => {
                     <Brightness5SharpIcon /> {data.astro.sunset}
                 </Typography>
             </Paper>
-            </Grid>
+        </Grid>
+    )
 }

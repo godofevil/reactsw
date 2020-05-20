@@ -19,18 +19,20 @@ const style = {
 
 export default props => {
     const data = props.data;
-    return <Container maxWidth="xl" fixed style={style.container}>
-                <Grid container spacing={3} justify="center">
-                    <Grid item xs={12} md={6}>
-                        <Paper style={style.paper} elevation={3}>
-                            <Typography variant="h3">
-                                {data.location.name}, {data.location.country}
-                            </Typography>
-                            {data.location.localtime}
-                            <CurrentWeather data={data.current}/>
-                        </Paper>
-                    </Grid>                    
-                    <Forecast data={data.forecast}/>
-                </Grid>
-            </Container>            
+    return (
+        <Container maxWidth="xl" fixed style={style.container}>
+            <Grid container spacing={3} justify="center">
+                <Grid item xs={12} md={6}>
+                    <Paper style={style.paper} elevation={3}>
+                        <Typography variant="h3">
+                            {data.location.name}, {data.location.country}
+                        </Typography>
+                        {data.location.localtime}
+                        <CurrentWeather data={data.current}/>
+                    </Paper>
+                </Grid>                    
+                <Forecast data={data.forecast}/>
+            </Grid>
+        </Container>       
+    )     
 }
